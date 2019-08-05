@@ -4,24 +4,57 @@ http://icarus.cs.weber.edu/~hvalle/hafb/words.txt
 
 Task 1: Count number of words in document
 """
+
 from urllib.request import urlopen
 file = "http://icarus.cs.weber.edu/~hvalle/hafb/words.txt"
 
-count = 0
-data = {}
-with urlopen(file) as story:
-    for line in story:
-        words = line.decode('utf-8').split()
-        for word in words:
-            count += 1
-            if word in data:
-                data[word] += 1
-            else:
-                data[word] = 1
-print(count)
-print(data)
-print(sorted(data.items()))
 
-for key in sorted(data.keys()):
-    print(key, data[key])
+def word_frequency(file_location):
+    """
+    Prints number of each word from file
+    :param file_location: Website of text file
+    :return:
+    """
+    count = 0
+    data = {}
+    with urlopen(file_location) as story:
+        for line in story:
+            words = line.decode('utf-8').split()
+            for word in words:
+                count += 1
+                if word in data:
+                    data[word] += 1
+                else:
+                    data[word] = 1
+        for key in sorted(data.keys()):
+            print(key, data[key])
+
+
+def fetch_words(file_location):
+    """
+    Prints number of each word from file
+    :param file_location: Website of text file
+    :return:
+    """
+    count = 0
+    data = []
+    with urlopen(file_location) as story:
+        for line in story:
+            words = line.decode('utf-8').split()
+            for word in words:
+                data.append(word)
+    return data
+
+
+def main():
+    word_frequency(file)
+    output = fetch_words(file)
+    print(output)
+
+
+if __name__ == "__main__":
+    print(__name__)
+    main()
+    exit(0)
+
 
