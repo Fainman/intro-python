@@ -48,8 +48,18 @@ def fetch_words(file_location):
 
 def main():
     word_frequency(file)
-    output = fetch_words(file)
-    print(output)
+    words = fetch_words(file)
+    print_words(words)
+
+
+def print_words(items):
+    """
+    Print elements of the list
+    :param story_words: A collection of objects
+    :return: nothing
+    """
+    for item in items:
+        print(item)
 
 
 if __name__ == "__main__":
