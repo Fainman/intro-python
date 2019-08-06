@@ -10,6 +10,7 @@ def modify(k):
     :param k: a list
     :return: nothing
     """
+    print(id(k))
     # list are passed by reference
     k.append(39)
     print("k = ", k)
@@ -42,6 +43,7 @@ def main():
     :return: nothing
     """
     m = [9, 15, 24]
+    print(id(m))
     print("Before m = ", m)
     modify(m)
     print("After m = ", m)
