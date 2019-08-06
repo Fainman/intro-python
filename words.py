@@ -34,7 +34,7 @@ def fetch_words(file_location):
     """
     Prints number of each word from file
     :param file_location: Website of text file
-    :return:
+    :return: a list with the items
     """
     count = 0
     data = []
@@ -47,6 +47,10 @@ def fetch_words(file_location):
 
 
 def main():
+    """
+    Test function for words library
+    :return: nothing
+    """
     word_frequency(file)
     words = fetch_words(file)
     print_words(words)
@@ -55,7 +59,7 @@ def main():
 def print_words(items):
     """
     Print elements of the list
-    :param story_words: A collection of objects
+    :param items: A collection of objects
     :return: nothing
     """
     for item in items:
